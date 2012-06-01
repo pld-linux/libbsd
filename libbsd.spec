@@ -1,12 +1,12 @@
 Summary:	Utility functions from BSD systems
 Summary(pl.UTF-8):	Funkcje narzędziowe z systemów BSD
 Name:		libbsd
-Version:	0.3.0
+Version:	0.4.0
 Release:	1
 License:	BSD, MIT (depending on part)
 Group:		Libraries
 Source0:	http://libbsd.freedesktop.org/releases/%{name}-%{version}.tar.gz
-# Source0-md5:	833e58531b4bd84b119b53d834d8e0d8
+# Source0-md5:	e61dee73c9e5bd5e6e6f281ac8fae325
 URL:		http://libbsd.freedesktop.org/
 BuildRequires:	sed >= 4.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -63,28 +63,22 @@ dostarczana przez ten pakiet jest dostępna jako libbsdutil.a.
 %setup -q
 
 %build
-%{__make} \
-	CC="%{__cc}" \
-	CFLAGS="%{rpmcflags}" \
-	LDFLAGS="%{rpmldflags}"
+%configure \
+	--disable-silent-rules
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-# Makefile defaults to install shared library to /lib, but in PLD it's not needed currently
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
-	exec_prefix=%{_prefix} \
-	libdir=%{_libdir} \
-	usrlibdir=%{_libdir}
-
-# avoid clash of deprecated headers with other packages
-%{__rm} $RPM_BUILD_ROOT%{_includedir}/{libutil,nlist,vis}.h
+	runtimelibdir='$(libdir)'
 
 # avoid clash with libbsd.a from glibc
 mv $RPM_BUILD_ROOT%{_libdir}/{libbsd,libbsdutil}.so
 mv $RPM_BUILD_ROOT%{_libdir}/{libbsd,libbsdutil}.a
 sed -i -e 's/-lbsd/-lbsdutil/' $RPM_BUILD_ROOT%{_pkgconfigdir}/*.pc
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/libbsd.la
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -105,27 +99,35 @@ rm -rf $RPM_BUILD_ROOT
 %{_pkgconfigdir}/libbsd.pc
 %{_pkgconfigdir}/libbsd-overlay.pc
 %{_mandir}/man3/arc4random*.3*
+%{_mandir}/man3/bitstring.3*
+%{_mandir}/man3/closefrom.3*
 %{_mandir}/man3/dehumanize_number.3*
+%{_mandir}/man3/expand_number.3*
 %{_mandir}/man3/fgetln.3*
 %{_mandir}/man3/flopen.3*
 %{_mandir}/man3/fmtcheck.3*
 %{_mandir}/man3/getmode.3*
 %{_mandir}/man3/getpeereid.3*
+%{_mandir}/man3/getprogname.3*
 %{_mandir}/man3/heapsort.3*
 %{_mandir}/man3/humanize_number.3*
 %{_mandir}/man3/md5.3bsd*
 %{_mandir}/man3/mergesort.3*
 %{_mandir}/man3/nlist.3*
 %{_mandir}/man3/pidfile.3*
+%{_mandir}/man3/queue.3bsd*
 %{_mandir}/man3/radixsort.3*
 %{_mandir}/man3/readpassphrase.3*
 %{_mandir}/man3/reallocf.3*
 %{_mandir}/man3/setmode.3*
+%{_mandir}/man3/setproctitle.3*
+%{_mandir}/man3/setprogname.3*
 %{_mandir}/man3/sradixsort.3*
 %{_mandir}/man3/strlcat.3*
 %{_mandir}/man3/strlcpy.3*
 %{_mandir}/man3/strmode.3*
 %{_mandir}/man3/strtonum.3*
+%{_mandir}/man3/tree.3*
 %{_mandir}/man3/unvis.3*
 %{_mandir}/man3/vis.3*
 
