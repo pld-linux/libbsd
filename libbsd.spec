@@ -1,12 +1,12 @@
 Summary:	Utility functions from BSD systems
 Summary(pl.UTF-8):	Funkcje narzędziowe z systemów BSD
 Name:		libbsd
-Version:	0.4.0
+Version:	0.4.1
 Release:	1
 License:	BSD, MIT (depending on part)
 Group:		Libraries
 Source0:	http://libbsd.freedesktop.org/releases/%{name}-%{version}.tar.gz
-# Source0-md5:	e61dee73c9e5bd5e6e6f281ac8fae325
+# Source0-md5:	8632bd9c56887f7f83cec2864937303d
 URL:		http://libbsd.freedesktop.org/
 BuildRequires:	sed >= 4.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -71,8 +71,7 @@ dostarczana przez ten pakiet jest dostępna jako libbsdutil.a.
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT \
-	runtimelibdir='$(libdir)'
+	DESTDIR=$RPM_BUILD_ROOT
 
 # avoid clash with libbsd.a from glibc
 mv $RPM_BUILD_ROOT%{_libdir}/{libbsd,libbsdutil}.so
