@@ -1,12 +1,12 @@
 Summary:	Utility functions from BSD systems
 Summary(pl.UTF-8):	Funkcje narzędziowe z systemów BSD
 Name:		libbsd
-Version:	0.4.1
+Version:	0.4.2
 Release:	1
 License:	BSD, MIT (depending on part)
 Group:		Libraries
 Source0:	http://libbsd.freedesktop.org/releases/%{name}-%{version}.tar.gz
-# Source0-md5:	8632bd9c56887f7f83cec2864937303d
+# Source0-md5:	591fc9de4ca22f78cf87a94e648a92f4
 URL:		http://libbsd.freedesktop.org/
 BuildRequires:	sed >= 4.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
