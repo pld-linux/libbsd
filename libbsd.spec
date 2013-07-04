@@ -1,14 +1,16 @@
 Summary:	Utility functions from BSD systems
 Summary(pl.UTF-8):	Funkcje narzędziowe z systemów BSD
 Name:		libbsd
-Version:	0.4.2
+Version:	0.5.2
 Release:	1
 License:	BSD, MIT (depending on part)
 Group:		Libraries
-Source0:	http://libbsd.freedesktop.org/releases/%{name}-%{version}.tar.gz
-# Source0-md5:	591fc9de4ca22f78cf87a94e648a92f4
+Source0:	http://libbsd.freedesktop.org/releases/%{name}-%{version}.tar.xz
+# Source0-md5:	be8b2e0dc4614699834c49693574fd1a
 URL:		http://libbsd.freedesktop.org/
 BuildRequires:	sed >= 4.0
+BuildRequires:	tar >= 1:1.22
+BuildRequires:	xz
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -103,8 +105,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man3/dehumanize_number.3*
 %{_mandir}/man3/expand_number.3*
 %{_mandir}/man3/fgetln.3*
+%{_mandir}/man3/fgetwln.3*
 %{_mandir}/man3/flopen.3*
 %{_mandir}/man3/fmtcheck.3*
+%{_mandir}/man3/fparseln.3*
 %{_mandir}/man3/getmode.3*
 %{_mandir}/man3/getpeereid.3*
 %{_mandir}/man3/getprogname.3*
@@ -125,10 +129,13 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man3/strlcat.3*
 %{_mandir}/man3/strlcpy.3*
 %{_mandir}/man3/strmode.3*
+%{_mandir}/man3/strnstr.3*
 %{_mandir}/man3/strtonum.3*
 %{_mandir}/man3/tree.3*
 %{_mandir}/man3/unvis.3*
 %{_mandir}/man3/vis.3*
+%{_mandir}/man3/wcslcat.3*
+%{_mandir}/man3/wcslcpy.3*
 
 %files static
 %defattr(644,root,root,755)
