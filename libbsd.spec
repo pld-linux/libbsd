@@ -1,12 +1,12 @@
 Summary:	Utility functions from BSD systems
 Summary(pl.UTF-8):	Funkcje narzędziowe z systemów BSD
 Name:		libbsd
-Version:	0.5.2
+Version:	0.6.0
 Release:	1
 License:	BSD, MIT (depending on part)
 Group:		Libraries
 Source0:	http://libbsd.freedesktop.org/releases/%{name}-%{version}.tar.xz
-# Source0-md5:	be8b2e0dc4614699834c49693574fd1a
+# Source0-md5:	f6c75f0a9818e323a589bcbd560a0eb4
 URL:		http://libbsd.freedesktop.org/
 BuildRequires:	sed >= 4.0
 BuildRequires:	tar >= 1:1.22
@@ -78,7 +78,7 @@ rm -rf $RPM_BUILD_ROOT
 # avoid clash with libbsd.a from glibc
 mv $RPM_BUILD_ROOT%{_libdir}/{libbsd,libbsdutil}.so
 mv $RPM_BUILD_ROOT%{_libdir}/{libbsd,libbsdutil}.a
-sed -i -e 's/-lbsd/-lbsdutil/' $RPM_BUILD_ROOT%{_pkgconfigdir}/*.pc
+sed -i -e 's/-lbsd/-lbsdutil/' $RPM_BUILD_ROOT%{_pkgconfigdir}/{libbsd,libbsd-overlay}.pc
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/libbsd.la
 
 %clean
@@ -96,8 +96,10 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libbsdutil.so
+%{_libdir}/libbsd-ctor.a
 %{_includedir}/bsd
 %{_pkgconfigdir}/libbsd.pc
+%{_pkgconfigdir}/libbsd-ctor.pc
 %{_pkgconfigdir}/libbsd-overlay.pc
 %{_mandir}/man3/arc4random*.3*
 %{_mandir}/man3/bitstring.3*
