@@ -1,12 +1,12 @@
 Summary:	Utility functions from BSD systems
 Summary(pl.UTF-8):	Funkcje narzędziowe z systemów BSD
 Name:		libbsd
-Version:	0.6.0
+Version:	0.7.0
 Release:	1
 License:	BSD, MIT (depending on part)
 Group:		Libraries
 Source0:	http://libbsd.freedesktop.org/releases/%{name}-%{version}.tar.xz
-# Source0-md5:	f6c75f0a9818e323a589bcbd560a0eb4
+# Source0-md5:	fcceb4e66fd448ca4ed42ba22a8babb0
 URL:		http://libbsd.freedesktop.org/
 BuildRequires:	sed >= 4.0
 BuildRequires:	tar >= 1:1.22
@@ -111,6 +111,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man3/flopen.3*
 %{_mandir}/man3/fmtcheck.3*
 %{_mandir}/man3/fparseln.3*
+%{_mandir}/man3/funopen.3*
+%{_mandir}/man3/getbsize.3*
 %{_mandir}/man3/getmode.3*
 %{_mandir}/man3/getpeereid.3*
 %{_mandir}/man3/getprogname.3*
@@ -128,6 +130,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man3/setproctitle.3*
 %{_mandir}/man3/setprogname.3*
 %{_mandir}/man3/sradixsort.3*
+%{_mandir}/man3/stringlist.3*
 %{_mandir}/man3/strlcat.3*
 %{_mandir}/man3/strlcpy.3*
 %{_mandir}/man3/strmode.3*
