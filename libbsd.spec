@@ -1,3 +1,5 @@
+# TODO
+# - take french bitstring.3 from fcron?
 Summary:	Utility functions from BSD systems
 Summary(pl.UTF-8):	Funkcje narzędziowe z systemów BSD
 Name:		libbsd
