@@ -1,5 +1,6 @@
 # TODO
 # - take french bitstring.3 from fcron?
+# - conflict with libbsd.a from glibc no longer exist?
 Summary:	Utility functions from BSD systems
 Summary(pl.UTF-8):	Funkcje narzędziowe z systemów BSD
 Name:		libbsd
