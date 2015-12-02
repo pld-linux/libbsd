@@ -1,15 +1,14 @@
 # TODO
 # - take french bitstring.3 from fcron?
-# - conflict with libbsd.a from glibc no longer exists (since glibc-2.19)
 Summary:	Utility functions from BSD systems
 Summary(pl.UTF-8):	Funkcje narzędziowe z systemów BSD
 Name:		libbsd
-Version:	0.7.0
-Release:	2
+Version:	0.8.0
+Release:	1
 License:	BSD, MIT (depending on part)
 Group:		Libraries
 Source0:	http://libbsd.freedesktop.org/releases/%{name}-%{version}.tar.xz
-# Source0-md5:	fcceb4e66fd448ca4ed42ba22a8babb0
+# Source0-md5:	262bdd1aa3bee6066a8c9cb49bb6c584
 URL:		http://libbsd.freedesktop.org/
 BuildRequires:	sed >= 4.0
 BuildRequires:	tar >= 1:1.22
@@ -33,6 +32,7 @@ Summary:	Header files for BSD library
 Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki BSD
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
+Conflicts:	glibc-devel < 6:2.19
 
 %description devel
 Header files for BSD library.
@@ -51,6 +51,7 @@ Summary:	Static BSD library
 Summary(pl.UTF-8):	Statyczna biblioteka BSD
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
+Conflicts:	glibc-devel < 6:2.19
 
 %description static
 Static BSD library.
@@ -78,10 +79,7 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-# avoid clash with libbsd.a from glibc
-mv $RPM_BUILD_ROOT%{_libdir}/{libbsd,libbsdutil}.so
-mv $RPM_BUILD_ROOT%{_libdir}/{libbsd,libbsdutil}.a
-sed -i -e 's/-lbsd/-lbsdutil/' $RPM_BUILD_ROOT%{_pkgconfigdir}/{libbsd,libbsd-overlay}.pc
+# obsoleted by pkg-config
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/libbsd.la
 
 %clean
@@ -98,7 +96,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/libbsdutil.so
+%attr(755,root,root) %{_libdir}/libbsd.so
 %{_libdir}/libbsd-ctor.a
 %{_includedir}/bsd
 %{_pkgconfigdir}/libbsd.pc
@@ -109,6 +107,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man3/closefrom.3*
 %{_mandir}/man3/dehumanize_number.3*
 %{_mandir}/man3/expand_number.3*
+%{_mandir}/man3/explicit_bzero.3*
 %{_mandir}/man3/fgetln.3*
 %{_mandir}/man3/fgetwln.3*
 %{_mandir}/man3/flopen.3*
@@ -128,6 +127,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man3/queue.3bsd*
 %{_mandir}/man3/radixsort.3*
 %{_mandir}/man3/readpassphrase.3*
+%{_mandir}/man3/reallocarray.3*
 %{_mandir}/man3/reallocf.3*
 %{_mandir}/man3/setmode.3*
 %{_mandir}/man3/setproctitle.3*
@@ -147,4 +147,4 @@ rm -rf $RPM_BUILD_ROOT
 
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/libbsdutil.a
+%{_libdir}/libbsd.a
