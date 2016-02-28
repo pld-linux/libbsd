@@ -37,14 +37,8 @@ Conflicts:	glibc-devel < 6:2.19
 %description devel
 Header files for BSD library.
 
-Note: to avoid clash with libbsd.a from glibc, library provided by
-this package is available as -lbsdutil.
-
 %description devel -l pl.UTF-8
 Pliki nagłówkowe biblioteki BSD.
-
-Uwaga: aby zapobiec konfliktowi z libbsd.a z glibc, biblioteka
-dostarczana przez ten pakiet jest dostępna jako -lbsdutil.
 
 %package static
 Summary:	Static BSD library
@@ -56,14 +50,8 @@ Conflicts:	glibc-devel < 6:2.19
 %description static
 Static BSD library.
 
-Note: to avoid clash with libbsd.a from glibc, library provided by
-this package is available as libbsdutil.a.
-
 %description static -l pl.UTF-8
 Statyczna biblioteka BSD.
-
-Uwaga: aby zapobiec konfliktowi z libbsd.a z glibc, biblioteka
-dostarczana przez ten pakiet jest dostępna jako libbsdutil.a.
 
 %prep
 %setup -q
