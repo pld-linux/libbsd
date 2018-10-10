@@ -3,12 +3,12 @@
 Summary:	Utility functions from BSD systems
 Summary(pl.UTF-8):	Funkcje narzędziowe z systemów BSD
 Name:		libbsd
-Version:	0.8.7
+Version:	0.9.1
 Release:	1
 License:	BSD, MIT (depending on part)
 Group:		Libraries
 Source0:	https://libbsd.freedesktop.org/releases/%{name}-%{version}.tar.xz
-# Source0-md5:	d9e6980fbfe44f94fd92b89a33cce67d
+# Source0-md5:	a74b80c4143afa032c90226a4518fffe
 URL:		https://libbsd.freedesktop.org/
 BuildRequires:	sed >= 4.0
 BuildRequires:	tar >= 1:1.22
@@ -168,7 +168,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man3/strnstr.3*
 %{_mandir}/man3/strnunvis.3*
 %{_mandir}/man3/strnvis.3*
+%{_mandir}/man3/strtoi.3*
 %{_mandir}/man3/strtonum.3*
+%{_mandir}/man3/strtou.3*
 %{_mandir}/man3/strunvis.3*
 %{_mandir}/man3/strvis.3*
 %{_mandir}/man3/strvisx.3*
