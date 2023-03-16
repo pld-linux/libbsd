@@ -1,14 +1,14 @@
 # TODO
-# - take french bitstring.3 from fcron?
+# - take French bitstring.3 from fcron?
 Summary:	Utility functions from BSD systems
 Summary(pl.UTF-8):	Funkcje narzędziowe z systemów BSD
 Name:		libbsd
-Version:	0.11.3
-Release:	2
+Version:	0.11.7
+Release:	1
 License:	BSD, MIT (depending on part)
 Group:		Libraries
 Source0:	https://libbsd.freedesktop.org/releases/%{name}-%{version}.tar.xz
-# Source0-md5:	5ce1707688d8bb75d365fadfce962b2c
+# Source0-md5:	2c5e63b5bb7771bbe4f572c7788e0bb8
 URL:		https://libbsd.freedesktop.org/
 BuildRequires:	libmd-devel >= 1.0
 BuildRequires:	sed >= 4.0
