@@ -4,7 +4,7 @@ Summary:	Utility functions from BSD systems
 Summary(pl.UTF-8):	Funkcje narzędziowe z systemów BSD
 Name:		libbsd
 Version:	0.11.7
-Release:	1
+Release:	2
 License:	BSD, MIT (depending on part)
 Group:		Libraries
 Source0:	https://libbsd.freedesktop.org/releases/%{name}-%{version}.tar.xz
@@ -34,7 +34,7 @@ Summary:	Header files for BSD library
 Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki BSD
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	libmd >= 1.0
+Requires:	libmd-devel >= 1.0
 Conflicts:	glibc-devel < 6:2.19
 
 %description devel
