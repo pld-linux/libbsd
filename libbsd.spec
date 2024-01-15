@@ -1,5 +1,9 @@
 # TODO
 # - take French bitstring.3 from fcron?
+#
+# Conditional build:
+%bcond_without	static_libs	# static library
+
 Summary:	Utility functions from BSD systems
 Summary(pl.UTF-8):	Funkcje narzędziowe z systemów BSD
 Name:		libbsd
@@ -11,6 +15,7 @@ Source0:	https://libbsd.freedesktop.org/releases/%{name}-%{version}.tar.xz
 # Source0-md5:	244d8a25164a85e7799f6f1cfcb620f1
 URL:		https://libbsd.freedesktop.org/
 BuildRequires:	libmd-devel >= 1.0
+BuildRequires:	rpmbuild(macros) >= 1.527
 BuildRequires:	sed >= 4.0
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
@@ -62,7 +67,8 @@ Statyczna biblioteka BSD.
 %build
 CPPFLAGS="%{rpmcppflags} -I/usr/include/libmd"
 %configure \
-	--disable-silent-rules
+	--disable-silent-rules \
+	%{__enable_disable static_libs static}
 %{__make}
 
 %install
@@ -207,6 +213,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man3/wcslcpy.3bsd*
 %{_mandir}/man7/libbsd.7*
 
+%if %{with static_libs}
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/libbsd.a
+%endif
