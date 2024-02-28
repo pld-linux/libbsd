@@ -7,12 +7,12 @@
 Summary:	Utility functions from BSD systems
 Summary(pl.UTF-8):	Funkcje narzędziowe z systemów BSD
 Name:		libbsd
-Version:	0.11.8
+Version:	0.12.1
 Release:	1
 License:	BSD, MIT (depending on part)
 Group:		Libraries
 Source0:	https://libbsd.freedesktop.org/releases/%{name}-%{version}.tar.xz
-# Source0-md5:	244d8a25164a85e7799f6f1cfcb620f1
+# Source0-md5:	3dc2e28934aa2c3aa6bad0ed3d96a617
 URL:		https://libbsd.freedesktop.org/
 BuildRequires:	libmd-devel >= 1.0
 BuildRequires:	rpmbuild(macros) >= 1.527
