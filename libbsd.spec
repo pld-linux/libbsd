@@ -7,12 +7,12 @@
 Summary:	Utility functions from BSD systems
 Summary(pl.UTF-8):	Funkcje narzędziowe z systemów BSD
 Name:		libbsd
-Version:	0.12.1
+Version:	0.12.2
 Release:	1
 License:	BSD, MIT (depending on part)
 Group:		Libraries
 Source0:	https://libbsd.freedesktop.org/releases/%{name}-%{version}.tar.xz
-# Source0-md5:	3dc2e28934aa2c3aa6bad0ed3d96a617
+# Source0-md5:	1aa07d44ee00e2cc1ae3ac10baae7a68
 URL:		https://libbsd.freedesktop.org/
 BuildRequires:	libmd-devel >= 1.0
 BuildRequires:	rpmbuild(macros) >= 1.527
@@ -106,8 +106,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man3/SPLAY_*.3bsd*
 %{_mandir}/man3/STAILQ_*.3bsd*
 %{_mandir}/man3/TAILQ_*.3bsd*
-%{_mandir}/man3/TIMESPEC_TO_TIMEVAL.3bsd*
-%{_mandir}/man3/TIMEVAL_TO_TIMESPEC.3bsd*
 %{_mandir}/man3/arc4random*.3bsd*
 %{_mandir}/man3/be16dec.3bsd*
 %{_mandir}/man3/be16enc.3bsd*
@@ -197,18 +195,19 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man3/timercmp.3bsd*
 %{_mandir}/man3/timerisset.3bsd*
 %{_mandir}/man3/timersub.3bsd*
-%{_mandir}/man3/timespec.3bsd*
 %{_mandir}/man3/timespecadd.3bsd*
 %{_mandir}/man3/timespecclear.3bsd*
 %{_mandir}/man3/timespeccmp.3bsd*
 %{_mandir}/man3/timespecisset.3bsd*
 %{_mandir}/man3/timespecsub.3bsd*
-%{_mandir}/man3/timeval.3bsd*
 %{_mandir}/man3/tree.3bsd*
 %{_mandir}/man3/uid_from_user.3bsd*
 %{_mandir}/man3/unvis.3bsd*
 %{_mandir}/man3/user_from_uid.3bsd*
+%{_mandir}/man3/verrc.3bsd*
 %{_mandir}/man3/vis.3bsd*
+%{_mandir}/man3/vwarnc.3bsd*
+%{_mandir}/man3/warnc.3bsd*
 %{_mandir}/man3/wcslcat.3bsd*
 %{_mandir}/man3/wcslcpy.3bsd*
 %{_mandir}/man7/libbsd.7*
